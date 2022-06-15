@@ -33,8 +33,8 @@ let append
         , image = mergeOptional Image.Type Image.append a.image b.image
         , variables = a.variables # b.variables
         , rules = mergeOptionalList Rule.Type a.rules b.rules
-        , dependencies = a.dependencies # b.dependencies
-        , needs = a.needs # b.needs
+        , dependencies = mergeOptionalList Text a.dependencies  b.dependencies
+        , needs = mergeOptionalList Text a.needs b.needs
         , allow_failure = b.allow_failure
         , tags = mergeOptionalList Text a.tags b.tags
         , before_script = mergeOptionalList Text a.before_script b.before_script
@@ -59,7 +59,7 @@ let append
         , trigger =
             mergeOptional Trigger.Type Trigger.append a.trigger b.trigger
         , timeout = mergeOptionalRight Text a.timeout b.timeout
-        , extends = a.extends # b.extends
+        , extends = mergeOptionalList Text a.extends b.extends
         }
 
 in  append

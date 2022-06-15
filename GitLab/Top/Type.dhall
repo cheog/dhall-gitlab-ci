@@ -12,9 +12,9 @@ let GitSubmoduleStrategy = ../GitSubmoduleStrategy/Type.dhall
 
 in  { jobs : Prelude.Map.Type Text Job
     , stages : Optional (List Text)
-    , gitSubmoduleStrategy : GitSubmoduleStrategy
-    , variables : Prelude.Map.Type Text Text
-    , workflow : List Rule
+    , gitSubmoduleStrategy : Optional GitSubmoduleStrategy
+    , variables : Optional (Prelude.Map.Type Text Text)
+    , workflow : Optional (List Rule)
     , default : Optional Defaults
-    , include : List Include
+    , include : Optional (List Include)
     }
