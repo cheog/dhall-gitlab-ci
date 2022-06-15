@@ -20,9 +20,9 @@ in  { stage : Optional Text
     , image : Optional Image
     , variables : Prelude.Map.Type Text Text
     , rules : Optional (List Rule)
-    , dependencies : List Text
-    , needs : List Text
-    , allow_failure : Bool
+    , dependencies : Optional (List Text)
+    , needs : Optional (List Text)
+    , allow_failure : Optional Bool
     , tags : Optional (List Text)
     , before_script : Optional Script
     , script : Script
@@ -34,5 +34,5 @@ in  { stage : Optional Text
     , environment : Optional Environment
     , trigger : Optional Trigger
     , timeout : Optional Text
-    , extends : List Text
+    , extends : Optional (List Text)
     }

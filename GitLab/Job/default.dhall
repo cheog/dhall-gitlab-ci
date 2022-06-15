@@ -20,9 +20,9 @@ in    { stage = None Text
       , image = None Image
       , variables = Prelude.Map.empty Text Text
       , rules = None (List Rule)
-      , dependencies = [] : List Text
-      , needs = [] : List Text
-      , allow_failure = False
+      , dependencies = None (List Text)
+      , needs = None (List Text)
+      , allow_failure = None Bool
       , tags = None (List Text)
       , before_script = None Script
       , script = [] : Script
@@ -34,6 +34,6 @@ in    { stage = None Text
       , environment = None Environment
       , trigger = None Trigger
       , timeout = None Text
-      , extends = [] : List Text
+      , extends = None (List Text)
       }
     : ./Type.dhall
